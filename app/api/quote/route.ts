@@ -31,8 +31,6 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         from: process.env.FROM_EMAIL,
         to: [
-          email,
-          'info@a2movingcompany.com',
           'a2movcom@gmail.com',
         ],
         subject: `A2 Moving Quote Request - ${name}`,
