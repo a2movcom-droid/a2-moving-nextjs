@@ -1,0 +1,1 @@
+export default function NotFound(){return <main className="section"><div className="container"><h1>Page not found</h1><p className="muted">The page you requested could not be found.</p><a className="btn primary" href="/">Back to Home</a></div></main>}

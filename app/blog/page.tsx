@@ -1,0 +1,2 @@
+export const metadata = { title:'Moving Blog | A2 Moving', description:'Moving tips, packing guides and local moving advice from A2 Moving.' };
+export default function Page(){return <section className="section"><div className="container contentBlock"><p className="eyebrow darkText">Blog</p><h1 style={{color:'#111'}}>Moving Tips & Guides</h1><p className="muted">Coming soon: packing tips, moving cost guides and city moving advice for Southern California.</p></div></section>}

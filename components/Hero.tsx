@@ -1,0 +1,5 @@
+import Image from 'next/image';
+import { site } from '@/lib/site';
+import { TrackingLink } from './TrackingButton';
+
+export default function Hero(){return <section className="hero"><Image src="/images/move-14.webp" alt="A2 Moving truck loaded for a residential move in Southern California" fill priority sizes="100vw" className="heroImg"/><div className="heroShade"/><div className="container heroContent"><p className="eyebrow">#1 Rated Movers in Southern California</p><h1>Professional Movers You Can <span>Trust</span></h1><p className="lead">A2 Moving provides reliable, efficient and stress-free moving services for homes and businesses.</p><div className="heroTrust"><b>✓ Licensed & Insured</b><b>🚚 {site.movesCompleted} Moves Completed</b><b>★ {site.reviewRating} Star Rating</b><b>👥 Trained Movers</b></div><div className="herocta"><TrackingLink href="/contact" event="quote_click" location="hero" className="btn gold big">Get a Free Quote →</TrackingLink><TrackingLink href={site.phoneHref} event="phone_click" location="hero" className="btn outline big">Call Now {site.phone}</TrackingLink></div></div></section>}

@@ -1,0 +1,2 @@
+export const metadata = { title:'A2 Moving Reviews', description:'See why customers trust A2 Moving for professional moving services.' };
+export default function Page(){return <section className="section"><div className="container contentBlock"><p className="eyebrow darkText">Reviews</p><h1 style={{color:'#111'}}>Customer Reviews</h1><p className="muted">A2 Moving is trusted by customers across Southern California for careful, professional moving services.</p><h2>★★★★★ 4.9 Star Rating</h2></div></section>}

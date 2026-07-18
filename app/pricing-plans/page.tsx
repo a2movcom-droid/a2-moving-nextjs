@@ -1,0 +1,2 @@
+export const metadata = { title:'Moving Prices & Rates | A2 Moving', description:'A2 Moving local moving rates and pricing details.' };
+export default function Page(){return <section className="section"><div className="container contentBlock"><p className="eyebrow darkText">Pricing</p><h1 style={{color:'#111'}}>Moving Prices & Rates</h1><p className="muted">Local moving rates start at $119/hour for 2 movers, $159/hour for 3 movers, and $199/hour for 4 movers, plus a one-time fuel charge. All jobs have a 3-hour minimum.</p></div></section>}
