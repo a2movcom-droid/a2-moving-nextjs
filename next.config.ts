@@ -4,6 +4,30 @@ const nextConfig: NextConfig = {
     formats: ['image/avif','image/webp'],
     minimumCacheTTL: 31536000,
   },
+  async redirects() {
+  return [
+    {
+      source: '/copy-of-about-us',
+      destination: '/piano-moving',
+      permanent: true,
+    },
+    {
+      source: '/copy-of-piano-moving-1',
+      destination: '/long-distance-moving',
+      permanent: true,
+    },
+    {
+      source: '/copy-of-piano-moving-4',
+      destination: '/labor-services',
+      permanent: true,
+    },
+    {
+      source: '/heavy-items',
+      destination: '/heavy-item-moving',
+      permanent: true,
+    },
+  ];
+},
   poweredByHeader: false,
   compress: true,
   async headers(){
