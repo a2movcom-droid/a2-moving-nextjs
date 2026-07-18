@@ -29,16 +29,42 @@ export const gallery = [
 ];
 
 export const services = [
-  { slug:'local-moving', title:'Local Moving', keyword:'local movers long beach', desc:'Fast, careful and affordable local moving services throughout Long Beach and Southern California.'},
-  { slug:'long-distance-moving', title:'Long Distance Moving', keyword:'long distance movers california', desc:'Reliable long-distance moving for homes, apartments and businesses across California and beyond.'},
-  { slug:'commercial-moving', title:'Commercial Moving', keyword:'commercial movers long beach', desc:'Office and commercial relocation with careful furniture protection and efficient move planning.'},
-  { slug:'office-moving', title:'Office Moving', keyword:'office movers long beach', desc:'Office furniture moving, workstation moving and business relocation services.'},
-  { slug:'packing-services', title:'Packing Services', keyword:'packing services long beach', desc:'Professional packing and unpacking help for a safer, more organized move.'},
-  { slug:'labor-services', title:'Labor Services', keyword:'labor only movers long beach', desc:'Loading, unloading, rearranging and moving labor when you already have a truck or container.'},
-  { slug:'piano-moving', title:'Piano Moving', keyword:'piano movers long beach', desc:'Careful piano moving for upright, baby grand and grand piano moves.'},
-  { slug:'heavy-items', title:'Heavy Items Moving', keyword:'heavy item movers long beach', desc:'Moving help for safes, heavy furniture, appliances and oversized items.'},
-  { slug:'apartment-moving', title:'Apartment Moving', keyword:'apartment movers long beach', desc:'Apartment and condo moves with stairs, elevators and building requirements handled carefully.'},
-  { slug:'residential-moving', title:'Residential Moving', keyword:'residential movers long beach', desc:'Full-service home moving with professional movers, trucks and protective supplies.'},
+  {
+    slug: 'local-moving',
+    title: 'Local Moving',
+    keyword: 'Local Movers Long Beach',
+    desc: "Whether you're moving to a new apartment, house, or condo in Long Beach, A2 Moving provides experienced local movers to make the process easier. We understand local moving logistics and focus on careful handling, efficient loading, and dependable service from pickup to delivery."
+  },
+  {
+    slug: 'long-distance-moving',
+    title: 'Long Distance Moving',
+    keyword: 'Long Distance Movers Long Beach',
+    desc: 'Planning a move beyond Long Beach? A2 Moving provides professional long-distance moving services with clear communication throughout the process. From careful loading at your current location to transportation and unloading at your destination, our team helps make long-distance relocation simpler and more organized.'
+  },
+  {
+    slug: 'commercial-moving',
+    title: 'Commercial Moving',
+    keyword: 'Commercial Movers Long Beach',
+    desc: 'Relocating a business requires careful coordination and an experienced moving team. A2 Moving provides commercial moving services for businesses of different sizes, helping transport furniture, equipment, inventory, and other business items while keeping your relocation organized and efficient.'
+  },
+  {
+    slug: 'office-moving',
+    title: 'Office Moving',
+    keyword: 'Office Movers Long Beach',
+    desc: 'Moving an office requires organization, planning, and careful handling of business equipment. A2 Moving helps Long Beach businesses relocate desks, office furniture, workstations, and equipment efficiently, helping reduce disruption and get your new workspace ready sooner.'
+  },
+  {
+    slug: 'packing-services',
+    title: 'Packing Services',
+    keyword: 'Packing Services Long Beach',
+    desc: 'Proper packing can make a major difference in protecting your belongings during a move. A2 Moving offers professional packing services in Long Beach for household goods, furniture, kitchen items, and other belongings. Choose full packing assistance or get help with only the items you need professionally prepared.'
+  },
+  {
+    slug: 'labor-services',
+    title: 'Labor Services',
+    keyword: 'Labor Moving Services Long Beach',
+    desc: 'Already have a truck, container, or storage unit? A2 Moving provides professional moving labor for customers who need extra help with loading, unloading, furniture moving, and rearranging heavy household items. Get an experienced moving crew without booking a full-service move.'
+  },
 ];
 
 export const cities = [
