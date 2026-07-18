@@ -65,6 +65,30 @@ export const services = [
     keyword: 'Labor Moving Services Long Beach',
     desc: 'Already have a truck, container, or storage unit? A2 Moving provides professional moving labor for customers who need extra help with loading, unloading, furniture moving, and rearranging heavy household items. Get an experienced moving crew without booking a full-service move.'
   },
+  {
+    slug: 'piano-moving',
+    title: 'Piano Moving',
+    keyword: 'piano movers long beach',
+    desc: 'Careful piano moving for upright, baby grand and grand piano moves.'
+  },
+  {
+    slug: 'heavy-items',
+    title: 'Heavy Items Moving',
+    keyword: 'heavy item movers long beach',
+    desc: 'Moving help for safes, heavy furniture, appliances and oversized items.'
+  },
+  {
+    slug: 'apartment-moving',
+    title: 'Apartment Moving',
+    keyword: 'apartment movers long beach',
+    desc: 'Apartment and condo moves with stairs, elevators and building requirements handled carefully.'
+  },
+  {
+    slug: 'residential-moving',
+    title: 'Residential Moving',
+    keyword: 'residential movers long beach',
+    desc: 'Full-service home moving with professional movers, trucks and protective supplies.'
+  },
 ];
 
 export const cities = [
