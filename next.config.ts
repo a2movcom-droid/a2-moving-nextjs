@@ -21,7 +21,11 @@ const nextConfig: NextConfig = {
       destination: '/labor-services',
       permanent: true,
     },
-  
+  {
+  source: '/book-now',
+  destination: 'https://app.supermove.co/o/a2movingcompany/request?referrer=4838',
+  permanent: true,
+},
   ];
 },
   poweredByHeader: false,
