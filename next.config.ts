@@ -21,11 +21,7 @@ const nextConfig: NextConfig = {
       destination: '/labor-services',
       permanent: true,
     },
-    {
-      source: '/heavy-items',
-      destination: '/heavy-item-moving',
-      permanent: true,
-    },
+  
   ];
 },
   poweredByHeader: false,
