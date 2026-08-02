@@ -275,7 +275,7 @@ export async function POST(request: Request) {
             </a>
           </p>
 
-          <p>Questions? Call us at 562-759-5569.</p>
+          <p>Questions? Call us at 562-759-5069.</p>
 
           <p>
             Thank you,<br>
