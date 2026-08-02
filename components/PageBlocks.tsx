@@ -1,11 +1,109 @@
-import Image from 'next/image';
+import type { ReactNode } from 'react';import Image from 'next/image';
+function ServiceIcon({ slug }: { slug: string }) {
+  const icons: Record<string, ReactNode> = {
+    'local-moving': (
+      <>
+        <path d="M3 11.5 12 4l9 7.5" />
+        <path d="M5.5 10.5V20h13v-9.5" />
+        <path d="M9.5 20v-6h5v6" />
+      </>
+    ),
+
+    'long-distance-moving': (
+      <>
+        <path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3V6Z" />
+        <path d="M9 3v15" />
+        <path d="M15 6v15" />
+      </>
+    ),
+
+    'commercial-moving': (
+      <>
+        <rect x="4" y="3" width="16" height="18" rx="1" />
+        <path d="M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2" />
+        <path d="M10 21v-3h4v3" />
+      </>
+    ),
+
+    'office-moving': (
+      <>
+        <rect x="3" y="7" width="18" height="13" rx="2" />
+        <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+        <path d="M3 12h18" />
+        <path d="M10 12v2h4v-2" />
+      </>
+    ),
+
+    'packing-services': (
+      <>
+        <path d="m4 7 8-4 8 4-8 4-8-4Z" />
+        <path d="M4 7v10l8 4 8-4V7" />
+        <path d="M12 11v10" />
+        <path d="m8 5 8 4" />
+      </>
+    ),
+
+    'labor-services': (
+      <>
+        <path d="M5 3h3l3 13h8" />
+        <path d="M9 7h9v7h-7" />
+        <circle cx="12" cy="19" r="2" />
+        <circle cx="19" cy="19" r="2" />
+      </>
+    ),
+  };
+
+  return (
+    <div className="serviceIcon" aria-hidden="true">
+      <svg
+        width="32"
+        height="32"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        {icons[slug] ?? icons['local-moving']}
+      </svg>
+    </div>
+  );
+}
 import Link from 'next/link';
 import { cityName, gallery, services, site } from '@/lib/site';
 import { TrackingLink } from './TrackingButton';
 import QuoteForm from './QuoteForm';
 
 export function PhotoGallery(){return <section className="section black"><div className="container center"><p className="eyebrow">Our Moving in Action</p><h2>Real Moves. Real Care.</h2><div className="gallery">{gallery.slice(0,10).map((g,i)=><Image key={g.src} src={g.src} alt={g.alt} width={420} height={280} sizes="(max-width:768px) 50vw, 18vw" loading={i<2?'eager':'lazy'}/>)}</div></div></section>}
-export function ServiceCards(){return <section className="section"><div className="container center"><p className="eyebrow darkText">Our Services</p><h2>Complete Moving Solutions</h2><p className="muted">No job is too big or too small. We handle it all with care.</p><div className="serviceGrid">{services.slice(0,6).map(s=><Link className="serviceCard" key={s.slug} href={`/${s.slug}`}><div className="serviceIcon">▣</div><h3>{s.title}</h3><p>{s.desc}</p><span>Learn More →</span></Link>)}</div></div></section>}
+export function ServiceCards() {
+  return (
+    <section className="section">
+      <div className="container center">
+        <p className="eyebrow darkText">Our Services</p>
+        <h2>Complete Moving Solutions</h2>
+        <p className="muted">
+          No job is too big or too small. We handle it all with care.
+        </p>
+
+        <div className="serviceGrid">
+          {services.slice(0, 6).map((service) => (
+            <Link
+              className="serviceCard"
+              key={service.slug}
+              href={`/${service.slug}`}
+            >
+              <ServiceIcon slug={service.slug} />
+              <h3>{service.title}</h3>
+              <p>{service.desc}</p>
+              <span>Learn More →</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 export function Benefits(){return <section className="benefitStrip"><div className="container benefits"><div><b>Licensed & Insured</b><p>Your belongings are safe with full protection.</p></div><div><b>Experienced Team</b><p>Trained, professional movers who care.</p></div><div><b>Transparent Pricing</b><p>No hidden fees, ever.</p></div><div><b>On-Time Guarantee</b><p>We value your time and schedule.</p></div></div></section>}
 export function BottomCTA(){return <section className="bottomCta"><div className="container bottomGrid"><div><b>Need help now?</b><a href={site.phoneHref}>{site.phone}</a><span>Call us anytime</span></div><div><b>Book your move online</b><p>Secure • Fast • Easy</p><TrackingLink href={site.bookingUrl} target="_blank" event="book_now_click" location="bottom_cta" className="btn dark">Book Now</TrackingLink></div><div><b>Get a free quote</b><p>No obligation estimate</p><Link href="/contact" className="btn dark">Get My Quote</Link></div></div></section>}
 export function AutoReplyBlock(){return <section className="section alt"><div className="container"><div className="replyCard"><h2>Local Move Auto-Reply</h2><p>After a customer submits a local quote request, the website can show this automatic response and track the quote conversion in GA4/GTM.</p><div className="replyText">Thank you for considering A2 Moving for your upcoming move. Our local moving rates start at $119/hour for 2 movers, $159/hour for 3 movers, and $199/hour for 4 movers, plus a one-time $50 fuel charge. All jobs have a 3-hour minimum. Our pricing includes the truck, blankets, plastic wrap, tools, dollies, tape, basic furniture disassembly/reassembly, and liability coverage. No hidden fees.</div></div></div></section>}
