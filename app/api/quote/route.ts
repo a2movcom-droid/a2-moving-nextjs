@@ -60,7 +60,7 @@ export async function POST(request: Request) {
     const referrer = cleanString(body.referrer);
     const landingPage = cleanString(body.landing_page);
 
-    if (!name || !email || !phone || !pickup || !destination) {
+    if (!name || !email || !phone || !pickup || !destination || !homeSize) {
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
