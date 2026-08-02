@@ -1,7 +1,7 @@
 export const site = {
   name: 'A2 Moving',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.a2movingcompany.com',
-  phone: '(562) 759-5569',
+  phone: '(562) 759-5069',
   phoneHref: 'tel:+15627595569',
   bookingUrl: process.env.NEXT_PUBLIC_SUPERMOVE_BOOKING_URL || 'https://app.supermove.co/0/a2movingcompany/request?referrer=4838',
   email: 'info@a2movingcompany.com',
