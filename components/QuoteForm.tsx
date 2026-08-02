@@ -154,8 +154,10 @@ export default function QuoteForm() {
             required
           />
 
-          <select name="homeSize" defaultValue="">
-            <option value="">Select Home Size</option>
+         <select name="homeSize" defaultValue="" required>
+  <option value="" disabled>
+    Select Home Size
+  </option>
             <option>Studio</option>
             <option>1 Bedroom</option>
             <option>2 Bedrooms</option>
