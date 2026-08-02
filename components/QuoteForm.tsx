@@ -103,7 +103,7 @@ export default function QuoteForm() {
       setSent(true);
       form.reset();
     } catch {
-      setError('Something went wrong. Please call us at 562-759-5569.');
+      setError('Something went wrong. Please call us at 562-759-5069.');
     } finally {
       setLoading(false);
     }
