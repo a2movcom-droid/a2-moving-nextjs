@@ -141,6 +141,9 @@ export async function POST(request: Request) {
           phone_number: normalizedPhone,
         },
       },
+      values: {
+  PROJECT_SIZE: homeSize,
+},
       jobs: [
         {
           job_type: service.jobType,
