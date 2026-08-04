@@ -7,7 +7,7 @@ const city = cityName(slug);
 
 export const metadata: Metadata = {
   title: `${city} Movers | Local Moving Company | A2 Moving`,
-  description: `Professional movers serving ${city}, CA. A2 Moving provides local, long-distance, commercial, packing and labor-only moving services.`,
+  description: 'Rolling Hills Estates movers for local, long-distance, packing and labor services, with careful planning for hills, gates, stairs and longer carries.',
   alternates: { canonical: `/${slug}` },
 };
 
