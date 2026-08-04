@@ -86,8 +86,8 @@ export const services = [
   {
     slug: 'heavy-items',
     title: 'Heavy Items Moving',
-    keyword: 'heavy item movers long beach',
-    desc: 'Moving help for safes, heavy furniture, appliances and oversized items.'
+    keyword: 'Furniture & Heavy Item Movers Long Beach',
+    desc: 'Professional furniture and heavy-item moving in Long Beach for safes, appliances, oversized furniture and other items that require careful planning and specialized equipment.'
   },
   {
     slug: 'apartment-moving',

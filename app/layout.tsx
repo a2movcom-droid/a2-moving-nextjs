@@ -7,10 +7,7 @@ import { site } from '@/lib/site';
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: {
-    default: 'A2 Moving | Long Beach Movers',
-    template: '%s | A2 Moving',
-  },
+  title: 'A2 Moving | Long Beach Movers',
   description:
     'A2 Moving provides professional moving services in Long Beach and Southern California.',
   robots: { index: true, follow: true },

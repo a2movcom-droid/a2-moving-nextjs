@@ -105,7 +105,7 @@ export function ServiceCards() {
     </section>
   );
 }
-export function Benefits(){return <section className="benefitStrip"><div className="container benefits"><div><b>Licensed & Insured</b><p>Your belongings are safe with full protection.</p></div><div><b>Experienced Team</b><p>Trained, professional movers who care.</p></div><div><b>Transparent Pricing</b><p>No hidden fees, ever.</p></div><div><b>On-Time Guarantee</b><p>We value your time and schedule.</p></div></div></section>}
+export function Benefits(){return <section className="benefitStrip"><div className="container benefits"><div><b>Licensed & Insured</b><p>Your belongings are safe with full protection.</p></div><div><b>Experienced Team</b><p>Trained, professional movers who care.</p></div><div><b>Transparent Pricing</b><p>No hidden fees, ever.</p></div><div><b>Dependable Scheduling</b><p>Clear communication before moving day.</p></div></div></section>}
 export function BottomCTA(){return <section className="bottomCta"><div className="container bottomGrid"><div><b>Need help now?</b><a href={site.phoneHref}>{site.phone}</a><span>Call us anytime</span></div><div><b>Book your move online</b><p>Secure • Fast • Easy</p><TrackingLink href={site.bookingUrl} target="_blank" event="book_now_click" location="bottom_cta" className="btn dark">Book Now</TrackingLink></div><div><b>Get a free quote</b><p>No obligation estimate</p><Link href="/contact" className="btn dark">Get My Quote</Link></div></div></section>}
 export function AutoReplyBlock(){return <section className="section alt"><div className="container"><div className="replyCard"><h2>Local Move Auto-Reply</h2><p>After a customer submits a local quote request, the website can show this automatic response and track the quote conversion in GA4/GTM.</p><div className="replyText">Thank you for considering A2 Moving for your upcoming move. Our local moving rates start at $119/hour for 2 movers, $159/hour for 3 movers, and $199/hour for 4 movers, plus a one-time $50 fuel charge. All jobs have a 3-hour minimum. Our pricing includes the truck, blankets, plastic wrap, tools, dollies, tape, basic furniture disassembly/reassembly, and liability coverage. No hidden fees.</div></div></div></section>}
   const includedByService: Record<string, string[]> = {
@@ -190,13 +190,36 @@ export function AutoReplyBlock(){return <section className="section alt"><div cl
     'Basic furniture disassembly and reassembly',
   ],
 };
+const serviceContent: Record<string, { heading: string; body: string }> = {
+  'Local Moving': {
+    heading: 'Local Movers in Long Beach',
+    body: 'A2 Moving handles apartment, condo and home moves throughout Long Beach. We plan for parking, elevators, stairs and building access, then protect furniture and home surfaces during loading and delivery.',
+  },
+  'Long Distance Moving': {
+    heading: 'Long Distance Movers from Long Beach',
+    body: 'Our long-distance moving team coordinates pickup, furniture protection, transportation and delivery beyond the Long Beach area. Customers receive clear communication about access, scheduling and destination details before moving day.',
+  },
+  'Commercial Moving': {
+    heading: 'Commercial Movers for Long Beach Businesses',
+    body: 'A2 Moving relocates offices, retail spaces and other businesses with organized handling for furniture, equipment and inventory. We plan loading order and access details to help limit disruption during the relocation.',
+  },
+  'Residential Moving': {
+    heading: 'Residential Movers for Homes and Apartments',
+    body: 'Our residential movers serve houses, apartments and condos with moving trucks, blankets, dollies and protective supplies. We prepare for stairs, elevators, long carries and furniture disassembly before the crew begins loading.',
+  },
+  'Heavy Items Moving': {
+    heading: 'Furniture and Heavy Item Movers in Long Beach',
+    body: 'A2 Moving provides furniture moving and careful handling for safes, appliances and oversized household items. Item weight, dimensions, stairs and access should be shared before the move so the right crew and equipment can be scheduled.',
+  },
+};
+
 export function ServicePage({title, keyword, desc}:{title:string; keyword:string; desc:string}){
   const related = services.filter(s=>s.title!==title).slice(0,5);
   const included = includedByService[title] || [];
   const serviceSlug = services.find((service) => service.title === title)?.slug;
   const serviceUrl = serviceSlug ? `${site.url}/${serviceSlug}` : site.url;
   const schema = serviceSchema(title, desc, serviceUrl);
-  return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g, '\\u003c')}}/><section className="serviceHero"><div className="container"><div className="breadcrumbs"><Link href="/">Home</Link> / {title}</div><p className="eyebrow">A2 Moving Service</p><h1>{title}</h1><p>{desc} Our trained movers protect furniture, floors, walls and doorways while keeping your move organized from start to finish.</p><div className="herocta"><TrackingLink href={site.bookingUrl} target="_blank" event="book_now_click" location={`${keyword}_service_page`} className="btn gold big">Book Your Move Online</TrackingLink><TrackingLink href={site.phoneHref} event="phone_click" location={`${keyword}_service_page`} className="btn outline big">Call Now {site.phone}</TrackingLink></div></div></section><section className="section"><div className="container grid2"><div className="contentBlock"><h2>{keyword}</h2><p className="muted">A2 Moving helps customers with careful planning, professional equipment and clear communication. Our local moving crews bring blankets, dollies, tools and wrap to protect your belongings during the move.</p><h2>What is included</h2><ul>
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g, '\\u003c')}}/><section className="serviceHero"><div className="container"><div className="breadcrumbs"><Link href="/">Home</Link> / {title}</div><p className="eyebrow">A2 Moving Service</p><h1>{title}</h1><p>{desc} Our trained movers protect furniture, floors, walls and doorways while keeping your move organized from start to finish.</p><div className="herocta"><TrackingLink href={site.bookingUrl} target="_blank" event="book_now_click" location={`${keyword}_service_page`} className="btn gold big">Book Your Move Online</TrackingLink><TrackingLink href={site.phoneHref} event="phone_click" location={`${keyword}_service_page`} className="btn outline big">Call Now {site.phone}</TrackingLink></div></div></section><section className="section"><div className="container grid2"><div className="contentBlock"><h2>{serviceContent[title]?.heading ?? keyword}</h2><p className="muted">{serviceContent[title]?.body ?? 'A2 Moving helps customers with careful planning, professional equipment and clear communication. Our moving crews bring blankets, dollies, tools and wrap to protect belongings during the move.'}</p><h2>What is included</h2><ul>
   {included.map((item) => (
     <li key={item}>{item}</li>
   ))}
