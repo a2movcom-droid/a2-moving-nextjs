@@ -2,14 +2,26 @@ export const site = {
   name: 'A2 Moving',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.a2movingcompany.com',
   phone: '(562) 759-5069',
-  phoneHref: 'tel:+15627595569',
+  phoneHref: 'tel:+15627595069',
   bookingUrl: process.env.NEXT_PUBLIC_SUPERMOVE_BOOKING_URL || 'https://app.supermove.co/0/a2movingcompany/request?referrer=4838',
   email: 'info@a2movingcompany.com',
+  address: {
+    streetAddress: '2130 Technology Pl',
+    addressLocality: 'Long Beach',
+    addressRegion: 'CA',
+    postalCode: '90810',
+    addressCountry: 'US',
+  },
+  sameAs: [
+    'https://maps.google.com/?cid=2428567975241917515',
+    'https://www.facebook.com/326475637205993',
+    'https://www.yelp.com/biz/a2-moving-long-beach-long-beach',
+  ],
   city: 'Long Beach',
   state: 'CA',
   serviceArea: 'Southern California',
   reviewRating: '4.9',
-  reviewCount: '1,200+',
+  reviewCount: '448',
   movesCompleted: '5,000+',
 };
 
