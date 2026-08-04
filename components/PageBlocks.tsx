@@ -72,6 +72,7 @@ function ServiceIcon({ slug }: { slug: string }) {
 }
 import Link from 'next/link';
 import { cityName, gallery, services, site } from '@/lib/site';
+import { serviceSchema } from '@/lib/schema';
 import { TrackingLink } from './TrackingButton';
 import QuoteForm from './QuoteForm';
 
@@ -192,7 +193,10 @@ export function AutoReplyBlock(){return <section className="section alt"><div cl
 export function ServicePage({title, keyword, desc}:{title:string; keyword:string; desc:string}){
   const related = services.filter(s=>s.title!==title).slice(0,5);
   const included = includedByService[title] || [];
-  return <><section className="serviceHero"><div className="container"><div className="breadcrumbs"><Link href="/">Home</Link> / {title}</div><p className="eyebrow">A2 Moving Service</p><h1>{title}</h1><p>{desc} Our trained movers protect furniture, floors, walls and doorways while keeping your move organized from start to finish.</p><div className="herocta"><TrackingLink href={site.bookingUrl} target="_blank" event="book_now_click" location={`${keyword}_service_page`} className="btn gold big">Book Your Move Online</TrackingLink><TrackingLink href={site.phoneHref} event="phone_click" location={`${keyword}_service_page`} className="btn outline big">Call Now {site.phone}</TrackingLink></div></div></section><section className="section"><div className="container grid2"><div className="contentBlock"><h2>{keyword}</h2><p className="muted">A2 Moving helps customers with careful planning, professional equipment and clear communication. Our local moving crews bring blankets, dollies, tools and wrap to protect your belongings during the move.</p><h2>What is included</h2><ul>
+  const serviceSlug = services.find((service) => service.title === title)?.slug;
+  const serviceUrl = serviceSlug ? `${site.url}/${serviceSlug}` : site.url;
+  const schema = serviceSchema(title, desc, serviceUrl);
+  return <><script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(schema).replace(/</g, '\\u003c')}}/><section className="serviceHero"><div className="container"><div className="breadcrumbs"><Link href="/">Home</Link> / {title}</div><p className="eyebrow">A2 Moving Service</p><h1>{title}</h1><p>{desc} Our trained movers protect furniture, floors, walls and doorways while keeping your move organized from start to finish.</p><div className="herocta"><TrackingLink href={site.bookingUrl} target="_blank" event="book_now_click" location={`${keyword}_service_page`} className="btn gold big">Book Your Move Online</TrackingLink><TrackingLink href={site.phoneHref} event="phone_click" location={`${keyword}_service_page`} className="btn outline big">Call Now {site.phone}</TrackingLink></div></div></section><section className="section"><div className="container grid2"><div className="contentBlock"><h2>{keyword}</h2><p className="muted">A2 Moving helps customers with careful planning, professional equipment and clear communication. Our local moving crews bring blankets, dollies, tools and wrap to protect your belongings during the move.</p><h2>What is included</h2><ul>
   {included.map((item) => (
     <li key={item}>{item}</li>
   ))}
