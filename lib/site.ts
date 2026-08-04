@@ -92,6 +92,6 @@ export const services = [
 ];
 
 export const cities = [
-  'long-beach-movers','irvine-movers','anaheim-movers','torrance-movers','santa-clarita-movers','lakewood-movers','los-angeles-movers','huntington-beach-movers','pasadena-movers','alhambra-movers'
+  'long-beach-movers','irvine-movers','anaheim-movers','torrance-movers','santa-clarita-movers','lakewood-movers','los-angeles-movers','huntington-beach-movers','pasadena-movers','alhambra-movers','rancho-palos-verdes-movers','rolling-hills-estates-movers','cerritos-movers','san-marino-movers'
 ];
 export const cityName = (slug:string)=>slug.replace('-movers','').split('-').map(w=>w[0].toUpperCase()+w.slice(1)).join(' ');
