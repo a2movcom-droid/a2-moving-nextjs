@@ -203,7 +203,46 @@ export function ServicePage({title, keyword, desc}:{title:string; keyword:string
 </ul><h2>Related services</h2><div className="pillLinks">{related.map(s=><Link key={s.slug} href={`/${s.slug}`}>{s.title}</Link>)}</div></div><QuoteForm/></div></section><PhotoGallery/><BottomCTA/></>
 }
 
+const cityDetails: Record<string, {
+  intro: string;
+  logistics: string;
+  nearby: string[];
+}> = {
+  'cerritos-movers': {
+    intro:
+      'A2 Moving serves Cerritos homes, apartments and businesses with professional crews, moving trucks and protective supplies. We plan each move around building access, parking, elevators and the distance between locations.',
+    logistics:
+      'Cerritos moves can involve planned neighborhoods, townhomes, busy commercial areas and access near the 91 and 605 freeways. Sharing gate instructions, loading rules and parking details before moving day helps the crew arrive prepared.',
+    nearby: ['Artesia', 'Norwalk', 'Lakewood', 'La Palma'],
+  },
+  'rancho-palos-verdes-movers': {
+    intro:
+      'A2 Moving provides residential, long-distance, packing and labor services throughout Rancho Palos Verdes and the Palos Verdes Peninsula. Our crews protect furniture and home surfaces while planning carefully for property access.',
+    logistics:
+      'Hillside streets, stairs, long driveways and gated properties can affect truck access and loading time in Rancho Palos Verdes. We review access details before the move and bring the equipment needed for careful handling.',
+    nearby: ['Palos Verdes Estates', 'Rolling Hills Estates', 'Rolling Hills', 'San Pedro'],
+  },
+  'rolling-hills-estates-movers': {
+    intro:
+      'A2 Moving helps Rolling Hills Estates residents relocate homes, apartments and offices with trained movers, professional equipment and careful furniture protection.',
+    logistics:
+      'Moves on the Palos Verdes Peninsula may include hills, private roads, gates, stairs and longer carries between the home and truck. Advance access information helps us plan the right crew and equipment.',
+    nearby: ['Rancho Palos Verdes', 'Palos Verdes Estates', 'Rolling Hills', 'Torrance'],
+  },
+  'san-marino-movers': {
+    intro:
+      'A2 Moving serves San Marino with local moving, long-distance moving, packing and labor assistance for homes and businesses. We focus on careful handling, clear communication and organized loading from start to finish.',
+    logistics:
+      'Established residential streets, larger homes, delicate furniture and driveway access can require additional planning in San Marino. Customers can share parking, stair and specialty-item details in advance so the crew is prepared.',
+    nearby: ['Pasadena', 'Alhambra', 'South Pasadena', 'Arcadia'],
+  },
+};
+
 export function CityPage({city}:{city:string}){
   const name = cityName(city);
-  return <><section className="serviceHero"><div className="container"><div className="breadcrumbs"><Link href="/">Home</Link> / {name} Movers</div><p className="eyebrow">Southern California Movers</p><h1>{name} Movers</h1><p>A2 Moving provides professional local, long-distance, commercial, packing and labor-only moving services in {name}, CA and nearby communities.</p><div className="herocta"><TrackingLink href={site.bookingUrl} target="_blank" event="book_now_click" location={`${city}_city_page`} className="btn gold big">Book Your Move Online</TrackingLink><TrackingLink href={site.phoneHref} event="phone_click" location={`${city}_city_page`} className="btn outline big">Call Now {site.phone}</TrackingLink></div></div></section><section className="section"><div className="container grid2"><div><h2>Moving Services in {name}</h2><p className="muted">Whether you are moving from an apartment, home, office or storage unit, A2 Moving offers trained movers, reliable trucks and professional moving supplies to make your move easier.</p><div className="pillLinks">{services.slice(0,8).map(s=><Link key={s.slug} href={`/${s.slug}`}>{s.title}</Link>)}</div><h2>Why choose A2 Moving?</h2><ul><li>Local and long-distance moving</li><li>Commercial, office and residential moves</li><li>Professional packing and furniture protection</li><li>Clear communication and online booking</li></ul></div><QuoteForm/></div></section><ServiceCards/><BottomCTA/></>
+  const details = cityDetails[city];
+  const intro = details?.intro ??
+    `A2 Moving provides professional local, long-distance, commercial, packing and labor-only moving services in ${name}, CA and nearby communities.`;
+
+  return <><section className="serviceHero"><div className="container"><div className="breadcrumbs"><Link href="/">Home</Link> / {name} Movers</div><p className="eyebrow">Southern California Movers</p><h1>{name} Movers</h1><p>{intro}</p><div className="herocta"><TrackingLink href={site.bookingUrl} target="_blank" event="book_now_click" location={`${city}_city_page`} className="btn gold big">Book Your Move Online</TrackingLink><TrackingLink href={site.phoneHref} event="phone_click" location={`${city}_city_page`} className="btn outline big">Call Now {site.phone}</TrackingLink></div></div></section><section className="section"><div className="container grid2"><div><h2>Moving Services in {name}</h2><p className="muted">Whether you are moving from an apartment, home, office or storage unit, A2 Moving offers trained movers, reliable trucks and professional moving supplies to make your move easier.</p><div className="pillLinks">{services.slice(0,8).map(s=><Link key={s.slug} href={`/${s.slug}`}>{s.title}</Link>)}</div>{details && <><h2>Planning a Move in {name}</h2><p className="muted">{details.logistics}</p><h2>Nearby Areas We Serve</h2><p className="muted">{details.nearby.join(', ')}</p></>}<h2>Why choose A2 Moving?</h2><ul><li>Local and long-distance moving</li><li>Commercial, office and residential moves</li><li>Professional packing and furniture protection</li><li>Clear communication and online booking</li></ul></div><QuoteForm/></div></section><ServiceCards/><BottomCTA/></>
 }
