@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import './globals.css';
@@ -17,5 +18,5 @@ export const viewport: Viewport = { width: 'device-width', initialScale: 1, them
 export default function RootLayout({children}:{children:React.ReactNode}){
   const gtm = process.env.NEXT_PUBLIC_GTM_ID;
   const ga = process.env.NEXT_PUBLIC_GA_ID;
-  return <html lang="en"><body>{gtm && <GoogleTagManager gtmId={gtm}/>}<Header/><main>{children}</main><Footer/>{ga && <GoogleAnalytics gaId={ga}/>}</body></html>;
+  return <html lang="en"><body>{gtm && <GoogleTagManager gtmId={gtm}/>}<Header/><main>{children}</main><Footer/>{ga && <GoogleAnalytics gaId={ga}/>}<SpeedInsights/></body></html>;
 }
